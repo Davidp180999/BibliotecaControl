@@ -280,6 +280,7 @@ def MenuUsu():
 
         match opcion:
             case 1:
+                print("Hola Mundo")
                 break
             case 2:
                 break

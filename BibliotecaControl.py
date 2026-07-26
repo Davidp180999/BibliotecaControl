@@ -234,6 +234,7 @@ def MenuAdmin():
             case 2:
                 break
             case 3:
+                print("agregar")
                 break
             case 4:
                 break

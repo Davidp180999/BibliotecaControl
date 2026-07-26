@@ -241,12 +241,12 @@ def MenuAdmin():
             case 5:
                 break
             case 8:
-                print("Hola Mundo")
+                
                 break
             case 9:
                 break
             case 10:
-
+                print("Hola Mundo")
                 break
             case 11:
                 print("Hasta Pronto")

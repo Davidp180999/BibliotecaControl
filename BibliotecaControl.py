@@ -1,45 +1,77 @@
 from collections import deque
 from traceback import print_exc
 class Persona:
-    def __init__(self, dpi, nombre_com, edad, sexo, telefono):
-        self.__dpi = dpi
-        self.__nombre = nombre_com
-        self.__edad = edad
-        self.__sexo = sexo
-        self.__telefono = telefono
+
+    def __init__(self, dpi, nombre, edad, sexo, telefono):
+        self.__dpi = ""
+        self.__nombre = ""
+        self.__edad = 0
+        self.__sexo = ""
+        self.__telefono = ""
+
+        self.set_dpi(dpi)
+        self.set_nombre(nombre)
+        self.set_edad(edad)
+        self.set_sexo(sexo)
+        self.set_telefono(telefono)
+
 
     def get_dpi(self):
         return self.__dpi
+
     def get_nombre(self):
         return self.__nombre
+
     def get_edad(self):
         return self.__edad
+
     def get_sexo(self):
         return self.__sexo
+
     def get_telefono(self):
         return self.__telefono
 
+
     def set_dpi(self, dpi):
-        if len(dpi) == 13:
+
+        if dpi.isdigit() and len(dpi) == 13:
             self.__dpi = dpi
         else:
-            print("Dpi invalida")
+            print("Error: El DPI debe contener exactamente 13 números.")
+
     def set_nombre(self, nombre):
-        self.__nombre = nombre
+
+        if nombre.strip() != "":
+            self.__nombre = nombre.title()
+        else:
+            print("Error: El nombre no puede estar vacío.")
+
     def set_edad(self, edad):
-        if edad > 0 and edad < 100:
+
+        if 0 < edad <= 100:
             self.__edad = edad
         else:
-            print("Edad invalida")
+            print("Error: Edad inválida.")
+
     def set_sexo(self, sexo):
-        self.__sexo = sexo
+
+        sexo = sexo.upper()
+
+        if sexo in ["M", "F"]:
+            self.__sexo = sexo
+        else:
+            print("Error: El sexo debe ser M o F.")
+
     def set_telefono(self, telefono):
-        if len(telefono) == 8:
+
+        if telefono.isdigit() and len(telefono) == 8:
             self.__telefono = telefono
         else:
-            print("Telefono invalido")
+            print("Error: El teléfono debe contener 8 números.")
 
     def mostrar_informacion(self):
+
+        print("\n----- DATOS PERSONALES -----")
         print("DPI:", self.__dpi)
         print("Nombre:", self.__nombre)
         print("Edad:", self.__edad)
@@ -84,11 +116,7 @@ class Bibliotecario(Persona):
 
     def mostrar_informacion(self):
         print("----- DATOS DEL BIBLIOTECARIO -----")
-        print("DPI:", self.get_dpi())
-        print("Nombre:", self.get_nombre())
-        print("Edad:", self.get_edad())
-        print("Sexo:", self.get_sexo())
-        print("Teléfono:", self.get_telefono())
+        super().mostrar_informacion()
         print("Código:", self.__codigo)
         print("Puesto:", self.__puesto)
         print("Usuario:", self.__usuario)
@@ -280,7 +308,7 @@ def MenuUsu():
 
         match opcion:
             case 1:
-                print("Hola Mundo")
+
                 break
             case 2:
                 break
@@ -315,4 +343,3 @@ while True:
                 break
             case _:
                 print("\n Opción no válida. Elija un número del 1 al 4. \n")
-

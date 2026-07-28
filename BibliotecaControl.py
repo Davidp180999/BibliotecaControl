@@ -291,7 +291,7 @@ class Libro:
 
     def mostrar_informacion(self):
         print("\n===== DATOS DEL LIBRO =====")
-        print("ISBN/Código:", self.__nil)
+        print("NIL/Código:", self.__nil)
         print("Título:", self.__titulo)
         print("Autor:", self.__autor)
         print("Categoría:", self.__categoria)
@@ -557,7 +557,7 @@ def registrar_libro():
     print("\n===== REGISTRO DE LIBRO =====")
 
     while True:
-        nil = input("Ingrese el ISBN o Código del libro: ")
+        nil = input("Ingrese el NIL o Código del libro: ")
         if nil == "":
             print("Error: El código no puede estar vacío.")
             continue

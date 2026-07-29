@@ -307,7 +307,7 @@ class Prestamo:
         self.__id = Prestamo.contador
         self.__usuario = usuario
         self.__libro = libro
-        self.__estado = "Pendiente"  # Pendiente -> Activo -> Devuelto
+        self.__estado = "Pendiente"
 
     def get_id(self):
         return self.__id
@@ -636,7 +636,7 @@ def solicitar_prestamo(usuario_actual=None):
 
     consultar_libros()
 
-    nil = input("\nIngrese el ISBN/Código del libro que desea solicitar: ").strip()
+    nil = input("\nIngrese el NIL/Código del libro que desea solicitar: ").strip()
     libro = _buscar_libro_por_nil(nil)
     if libro is None:
         print("Error: No existe un libro con ese código.")

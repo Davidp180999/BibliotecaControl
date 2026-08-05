@@ -1,5 +1,4 @@
 from collections import deque
-from traceback import print_exc
 
 class Persona:
 
@@ -249,7 +248,7 @@ class Libro:
         if nil.strip() != "":
             self.__nil = nil.strip()
             return True
-        print("Error: El ISBN/Código no puede estar vacío.")
+        print("Error: El NIL/Código no puede estar vacío.")
         return False
 
     def set_titulo(self, titulo):
